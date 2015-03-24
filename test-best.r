@@ -5,8 +5,8 @@ library("testthat")
 context("Finding the best hospital in a state")
 
 test_that("verify the state and outcome validation works", {
-  expect_error(best("BB", "heart attack"))
-  expect_error(best("NY", "hert attack" ))
+  expect_error(best("BB", "heart attack"), "invalid state")
+  expect_error(best("NY", "hert attack" ), "invalid outcome")
 })
 
 test_that("find the hospital with the 'best' 30 day mortality rate", {
