@@ -20,3 +20,10 @@ test_that("compare best with the expected submit script output", {
   expect_equal(best("NY", "pneumonia"   ), "MAIMONIDES MEDICAL CENTER")
   expect_error(best("NN", "pneumonia"   ))
 })
+
+test_that("handling ties (alphabetical order)", {
+  expect_equal(best("SD", "heart failure"),
+               "AVERA HEART HOSPITAL OF SOUTH DAKOTA LLC")
+  expect_equal(best("WI", "heart failure"), "AURORA ST LUKES MEDICAL CENTER")
+  expect_equal(best("MA", "pneumonia"), "FALMOUTH HOSPITAL")
+})
